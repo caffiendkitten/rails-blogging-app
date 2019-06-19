@@ -9,12 +9,16 @@ class PostsController < ApplicationController
   end
 
   def show
-    # @post = @post.find(params[:id])
+    @post = Post.find(params[:id])
+    session[:post_id] = @post.id
+    @comments = @post.comments
+    @comment = Comment.new
   end
 
 
     def new
       @post = Post.new
+      @comment = Comment.new(post_id: @post.id)
     end
 
     def create
