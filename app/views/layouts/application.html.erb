@@ -1,25 +1,42 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Blog Project</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <title># OctoThorp</title>
+
   </head>
 
   <body>
-    <div id="header">
-        <div class="nav-wrap">
-            <div class="container">
-NAVIGATION
-            </div>
-        </div>
-    </div>
-    <%= yield %>
+    <div class='container'>
 
 
+
+
+      <nav class="navbar navbar-default">
+
+        <div class="container-fluid">
+          <div class="navbar-header">
+
+            Welcome User
+
+            <a class="navbar-brand" href="#">Log in</a>
+
+
+
+          </div><!-- end of navbar-header -->
+        </div><!-- end of container-fluid -->
+      </nav><!-- end of navbar navbar-default -->
+
+
+        <%= yield %>
+
+      </div><!-- end class=container  -->
 
   </body>
 </html>
