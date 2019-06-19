@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   before_action :set_params, only: [:show, :edit, :update]
   before_action :current_user
+  skip_before_action :current_user, only: [:index]
 
   # not working yet
   def index
