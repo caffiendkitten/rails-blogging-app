@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-
+    
     def new
         render :log_in
     end
@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
         if @user = User.find_by(user_name: params[:session][:user_name])
             if @user.authenticate(params[:session][:password])
                 session[:user_id] = @user.id
-                redirect_to @user
+                redirect_to posts_path
             end
         else
             flash[:message] = "Invalid Login"
