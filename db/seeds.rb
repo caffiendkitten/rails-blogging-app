@@ -16,14 +16,14 @@ u5 = User.create(user_name: Faker::TvShows::SiliconValley.character, bio: "404 b
 
 # Faker::Lorem.paragraphs
 
-p1 = Post.create(user_id: 1, title: Faker::TvShows::SiliconValley.quote, content: Faker::Lorem.paragraphs)
-p2 = Post.create(user_id: 2, title: Faker::TvShows::SiliconValley.quote, content: Faker::Lorem.paragraphs)
-p3 = Post.create(user_id: 3, title: Faker::TvShows::SiliconValley.quote, content: Faker::Lorem.paragraphs)
-p4 = Post.create(user_id: 4, title: Faker::TvShows::SiliconValley.quote, content: Faker::Lorem.paragraphs)
-p5 = Post.create(user_id: 5, title: Faker::TvShows::SiliconValley.quote, content: Faker::Lorem.paragraphs)
-p6 = Post.create(user_id: 1, title: Faker::TvShows::SiliconValley.quote, content: Faker::Lorem.paragraphs)
-p7 = Post.create(user_id: 3, title: Faker::TvShows::SiliconValley.quote, content: Faker::Lorem.paragraphs)
-p8 = Post.create(user_id: 4, title: Faker::TvShows::SiliconValley.quote, content: Faker::Lorem.paragraphs)
+p1 = Post.create(user_id: 1, title: Faker::TvShows::SiliconValley.quote, content: Faker::Lorem.paragraph_by_chars(256, false))
+p2 = Post.create(user_id: 2, title: Faker::TvShows::SiliconValley.quote, content: Faker::Lorem.paragraph_by_chars(256, false))
+p3 = Post.create(user_id: 3, title: Faker::TvShows::SiliconValley.quote, content: Faker::Lorem.paragraph_by_chars(256, false))
+p4 = Post.create(user_id: 4, title: Faker::TvShows::SiliconValley.quote, content: Faker::Lorem.paragraph_by_chars(256, false))
+p5 = Post.create(user_id: 5, title: Faker::TvShows::SiliconValley.quote, content: Faker::Lorem.paragraph_by_chars(256, false))
+p6 = Post.create(user_id: 1, title: Faker::TvShows::SiliconValley.quote, content: Faker::Lorem.paragraph_by_chars(256, false))
+p7 = Post.create(user_id: 3, title: Faker::TvShows::SiliconValley.quote, content: Faker::Lorem.paragraph_by_chars(256, false))
+p8 = Post.create(user_id: 4, title: Faker::TvShows::SiliconValley.quote, content: Faker::Lorem.paragraph_by_chars(256, false))
 
 
 
