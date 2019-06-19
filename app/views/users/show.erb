@@ -1,10 +1,19 @@
-<%= link_to("Logout", logout_path)%>
-<%= link_to("Home", posts_path)%>
-<%= link_to("Edit Profile", edit_user_path)%>
-<%= link_to("Create New Post", new_post_path)%>
+<h4>Username:  <%=@user.user_name%></h4>
+<h4>Bio:  <%= @user.bio%></h4>
+<p><%= link_to("Edit", edit_user_path) %></p>
+<br>
+<hr>
 
-<br>
-<br>
-    Username: <%=@user.user_name%><br>
-    Bio: <%= @user.bio%><br>
-<br>
+<%# <%= @user.posts.content%>
+
+<% @user.posts.each do |post| %>
+
+    <h2 class="post-title"><%= post.title%></h2>
+    <p class="post-meta">Posted on: <%= post.created_at %></p>
+
+    <p><%= post.content %></p>
+
+    <%= link_to("show page", post)%>
+  <hr>
+
+<% end %>

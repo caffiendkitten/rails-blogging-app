@@ -23,8 +23,37 @@
   font-size: 20px;
 }
 
+a:link {
+  /* color: red; */
+  text-decoration: none;
 
+}
 
-/* .ui.inverted.menu{
-  max-width: 1040px;
-} */
+/* visited link */
+a:visited {
+  color: green;
+}
+
+/* mouse over link */
+a:hover {
+  color: hotpink;
+}
+
+/* selected link */
+a:active {
+  color: blue;
+}
+
+/* posts styling */
+#post_content {
+  margin: 0px;
+  width: 75%;
+  height: 155px;
+}
+
+/* user styles */
+#user_bio{
+  margin: 0px;
+  width: 75%;
+  height: 99px;
+}

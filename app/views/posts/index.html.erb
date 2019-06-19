@@ -5,7 +5,12 @@
 
   <% @posts.each do |post| %>
     <!-- <li> -->
-      <h2 class="post-title"><%= post.title%></h2>
+      <h2 class="post-title">
+
+        <%= link_to(post.title, post)%>
+
+
+      </h2>
       <p class="post-meta">Posted by: <%= post.user.user_name %> @ <%= post.created_at %></p>
 
       <%#= link_to post.user.user_name, post_user_path %>
@@ -16,11 +21,11 @@
       <br>
       <p>Comments: <%= post.comments.count%></p>
     <!-- </li> -->
-<%= link_to("show page", post)%>
+
 <%= link_to("Like", new_post_like_path(post_id: post.id, user_id: @current_user))%>
     <hr>
-    
+
   <% end %>
 
-  
+
 <!-- </ul> -->
