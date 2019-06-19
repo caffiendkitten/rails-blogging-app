@@ -7,6 +7,11 @@ Title: <%= @post.title %>
 Content: <%= @post.content %>
 <br>
 <br><br>
+Likes: <%= @post.post_likes.count%>
+<br>
+<%= link_to("Like", new_post_like_path(post_id: @post.id, user_id: @current_user))%>
+<br>
+<br>
 Comments:<br>
 <ul>
  <%@comments.each do |comment|%>
