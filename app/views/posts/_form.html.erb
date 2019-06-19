@@ -1,7 +1,6 @@
-<%= form_for @post do |f| %>
+<%= form_for(@post) do |f| %>
 
-<%= f.label :user_id %>
-<%= f.collection_select :user_id, User.all, :id, :user_name %>
+Author: <%= @current_user.user_name %>
 <br>
 <br>
 

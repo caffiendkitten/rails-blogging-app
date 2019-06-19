@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   before_action :set_params, only: [:show, :edit, :update]
+  before_action :current_user
 
   # not working yet
   def index
@@ -19,9 +20,8 @@ class PostsController < ApplicationController
     def create
 
       @post = Post.create(post_params)
-      byebug
+      @post.user = @current_user
       if @post.save
-        byebug
         redirect_to @post
       else
         render :new
