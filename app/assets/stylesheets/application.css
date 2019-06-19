@@ -5,7 +5,7 @@
 
 
  h2 {
-   text-align: left;
+   text-align: right;
  }
 
 .container{
@@ -16,5 +16,15 @@
    background-color: grey;
  }
  .post-meta{
-   font-size: 20%;
+   font-size: 10px;
  }
+.ui.menu:not(.vertical) .menu{
+  color: white;
+  font-size: 20px;
+}
+
+
+
+/* .ui.inverted.menu{
+  max-width: 1040px;
+} */

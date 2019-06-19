@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+
+    <title># OctoThorp</title>
+
+  </head>
+
+  <body>
+    <div class='container'>
+
+
+
+
+      <nav class="navbar navbar-default">
+
+        <div class="container-fluid">
+          <div class="navbar-header">
+
+            <h1>#OctoThorp</h1>
+
+            <div class="right menu">
+                 <% if logged_in? %>
+                 <%= link_to("Home", posts_path)%>
+
+                   <%# <%= link_to 'Create a New Student', new_student_path, {class: 'item'} %> %>
+                   <%# <%= link_to("Create New Post", post_path)%> %>
+
+                   <%# <%= link_to("Edit Profile", edit_user_path)%> == %>
+                   <%= link_to("Logout", logout_path)%>
+                 <% else %>
+                 <%= link_to("Home", posts_path)%>
+
+                 <%= link_to("Create Account", new_user_path)%> ==
+                 <%= link_to("Login", login_path)%>
+               <% end %>
+              </div>
+
+
+          </div><!-- end of navbar-header -->
+        </div><!-- end of container-fluid -->
+      </nav><!-- end of navbar navbar-default -->
+
+
+        <%= yield %>
+
+      </div><!-- end class=container  -->
+      <footer>
+        <div>
+        <p> << Social Medias here >> </p>
+        </div>
+      </footer>
+  </body>
+</html>
