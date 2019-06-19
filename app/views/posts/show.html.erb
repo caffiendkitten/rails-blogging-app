@@ -23,6 +23,3 @@ Comments:<br>
     <%=f.hidden_field :post_id, value: "#{@post.id}"%>
     <%= f.submit "Comment"%>
 <%end%>
-
-<%= link_to "Add Comment", new_comment_path(post_id: @post.id) %>
-

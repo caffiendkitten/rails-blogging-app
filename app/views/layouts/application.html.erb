@@ -19,10 +19,9 @@
     <div class="right menu">
       <% if logged_in? %>
 
-        <%# <%= link_to 'Create a New Student', new_student_path, {class: 'item'} %>
         <%= link_to("Create New Post", new_post_path)%> ==
 
-        <%= link_to("Edit Profile", edit_user_path(current_user))%> ==
+        <%= link_to("Profile", user_path(current_user))%> ==
         <%= link_to("Logout", logout_path)%>
       <% else %>
 
