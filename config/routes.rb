@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get '/sign_up', to: 'users#new'
   post '/sign_up', to: 'users#create'
   get '/', to: 'posts#index'
+  resources :post_likes, only:[:new, :create, :destroy]
   resources :posts
   resources :users
   resources :comments, only: [:new, :create, :destroy]
