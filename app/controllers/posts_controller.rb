@@ -13,6 +13,8 @@ class PostsController < ApplicationController
     session[:post_id] = @post.id
     @comments = @post.comments
     @comment = Comment.new
+    @title_snippet = @post.title[0..200]
+    @content_snippet = @post.content[0..200]
   end
 
 
@@ -32,8 +34,8 @@ class PostsController < ApplicationController
       end
     end
     #
-    # def edit
-    # end
+    def edit
+    end
 
     def update
       if @post.update(post_params)
@@ -42,6 +44,12 @@ class PostsController < ApplicationController
       else
         render :edit
       end
+    end
+
+    def destroy
+      @post = Post.find(session[:post_id])
+      @post.delete
+      redirect_to posts_path
     end
 
 
