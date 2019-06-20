@@ -1,20 +1,30 @@
 
-<br>
-Author: <%= @post.user.user_name%>
-<br>
-<br>
+<p>
+  Author: <%= @post.user.user_name%>
+</p>
+<p>
 Title: <%= @post.title %>
-<br>
-<br>
+</p>
+<p>
 Content: <%= @post.content %>
-<br>
+</p>
+
 <br><br>
 Likes: <%= @post.post_likes.count%>
 <br>
-<button><%= link_to("Like", new_post_like_path(post_id: @post.id, user_id: @current_user))%></button>
+<button class="button"  style="vertical-align:middle"><%= link_to("Like", new_post_like_path(post_id: @post.id, user_id: @current_user))%></button>
 <br>
 <br>
-Comments:<br>
+Comment:
+<%= form_for(@comment) do |f|%>
+
+    <%= f.text_area :content%>
+    <br>
+    <%=f.hidden_field :post_id, value: "#{@post.id}"%>
+    <%= f.submit "Comment", :class => "button", :style => "vertical-align:middle"%>
+<%end%>
+
+Previous Comments:
 <ul>
  <%@comments.each do |comment|%>
     <li><%= comment.content%></li>
@@ -22,17 +32,13 @@ Comments:<br>
 <%end%>
 </ul>
 
-<%= form_for(@comment) do |f|%>
-    <%= f.label :content%>
-    <br>
-    <%= f.text_area :content%>
-    <br>
-    <%=f.hidden_field :post_id, value: "#{@post.id}"%>
-    <%= f.submit "Comment"%>
-<%end%>
-<br>
-<br>
 <% if @post.user_id == session[:user_id]%>
-    <button><%= link_to("Edit", edit_post_path)%></button>
-    <%= button_to("delete", @recipe, :method => :delete) %>
+  <button class="button"  style="vertical-align:middle">
+      <%= link_to("Edit", edit_post_path)%>
+  </button>
+  <button class="button"  style="vertical-align:middle">
+      <%= link_to("Delete", @post, :method => :delete)%>
+  </button>
+
+    <%# <%= button_to("Delete", @recipe, :method => :delete) %>
 <%end%>

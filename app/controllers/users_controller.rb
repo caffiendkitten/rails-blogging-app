@@ -13,9 +13,10 @@ class UsersController < ApplicationController
             redirect_to login_path
         end
     end
-    
+
     def create
         @user = User.new(user_params)
+        @user.pic = Faker::Avatar.image 
         if @user.save
             log_in(@user)
             redirect_to posts_path

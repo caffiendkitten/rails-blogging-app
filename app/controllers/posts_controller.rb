@@ -3,6 +3,7 @@ class PostsController < ApplicationController
   before_action :current_user
   def index
     @posts = Post.all
+    @sorted_posts = Post.all.order('created_at DESC')
   end
 
   def show
@@ -27,7 +28,7 @@ class PostsController < ApplicationController
         render :new
       end
     end
-    
+
 
     def edit
     end
