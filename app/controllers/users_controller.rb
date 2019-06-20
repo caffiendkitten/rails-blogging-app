@@ -7,7 +7,11 @@ class UsersController < ApplicationController
     end
 
     def show
-        @user = User.find_by(id: session[:user_id])
+        if logged_in?
+            @user = User.find_by(id: session[:user_id])
+        else
+            redirect_to login_path
+        end
     end
     
     def create

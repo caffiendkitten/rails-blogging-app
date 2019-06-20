@@ -1,12 +1,8 @@
 class PostsController < ApplicationController
   before_action :set_params, only: [:show, :edit, :update]
   before_action :current_user
-  skip_before_action :current_user, only: [:index]
-
-  # not working yet
   def index
     @posts = Post.all
-    # byebug
   end
 
   def show
@@ -14,8 +10,6 @@ class PostsController < ApplicationController
     session[:post_id] = @post.id
     @comments = @post.comments
     @comment = Comment.new
-    @title_snippet = @post.title[0..200]
-    @content_snippet = @post.content[0..200]
   end
 
 
@@ -25,7 +19,6 @@ class PostsController < ApplicationController
     end
 
     def create
-
       @post = Post.create(post_params)
       @post.user = @current_user
       if @post.save
@@ -34,13 +27,13 @@ class PostsController < ApplicationController
         render :new
       end
     end
-    #
+    
+
     def edit
     end
 
     def update
       if @post.update(post_params)
-        # byebug
         redirect_to @post
       else
         render :edit
@@ -50,7 +43,7 @@ class PostsController < ApplicationController
     def destroy
       @post = Post.find(session[:post_id])
       @post.delete
-      redirect_to posts_path
+      redirect_to user_path
     end
 
 
