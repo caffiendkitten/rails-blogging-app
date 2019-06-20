@@ -15,6 +15,20 @@ Likes: <%= @post.post_likes.count%>
 <button class="button"  style="vertical-align:middle"><%= link_to("Like", new_post_like_path(post_id: @post.id, user_id: @current_user))%></button>
 <br>
 <br>
+Previous Comments:
+<% if @comments.length == 0 %>
+  <br>No Comments Found. Be the first to comment below. =)<br><br>
+<%  else %>
+  <ul>
+   <%@comments.each do |comment|%>
+      <li><%= comment.content%></li>
+  <%end%>
+  </ul>
+<% end %>
+
+
+
+
 Comment:
 <%= form_for(@comment) do |f|%>
 
@@ -24,13 +38,6 @@ Comment:
     <%= f.submit "Comment", :class => "button", :style => "vertical-align:middle"%>
 <%end%>
 
-Previous Comments:
-<ul>
- <%@comments.each do |comment|%>
-    <li><%= comment.content%></li>
-    <br>
-<%end%>
-</ul>
 
 <% if @post.user_id == session[:user_id]%>
   <button class="button"  style="vertical-align:middle">

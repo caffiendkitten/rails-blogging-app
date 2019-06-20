@@ -3,8 +3,7 @@
   <head>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-    <!-- css thing...sorry -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 
     <!-- star css -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -65,8 +64,47 @@
 
       </div>
       <div class="four"><%= yield %></div>
-      <div class="five">five</div>
-      <div class="six">footer</div>
+      <div class="five">
+        <h2>Site Analytics</h2>
+        Total blog word count:
+            <ul><li><%= Post.total_word_count %></li></ul>
+        Most likes on any post:
+            <ul><li><%= Post.most_likes  %></li></ul>
+        Avg Post Word Count:
+            <ul><li><%=  Post.average_word_count  %></li></ul>
+        Total Likes:
+            <ul><li><%=  Post.total_likes  %></li></ul>
+        Avg Likes Per Post:
+            <ul><li><%=  Post.avg_likes_per_post  %></li></ul>
+
+      </div>
+      <div class="six">
+        <% if logged_in? %>
+            <button class="button" style="vertical-align:middle">
+                <span>
+                    <%= link_to("Create New Post", new_post_path)%>
+                </span>
+            </button>
+            <button class="button" style="vertical-align:middle">
+                <span>
+                  <%= link_to("Profile", @current_user)%>
+                </span>
+            </button>
+            <button class="button" style="vertical-align:middle">
+                <span><%= link_to("Logout", logout_path)%>
+                </span>
+            </button>
+      <% else %>
+            <button class="button" style="vertical-align:middle">
+                <span><%= link_to("Create Account", new_user_path)%>
+                </span>
+            </button>
+            <button class="button" style="vertical-align:middle">
+                <span><%= link_to("Login", login_path)%>
+                </span>
+            </button>
+        <% end %>
+      </div>
     </div>
 
 

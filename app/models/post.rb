@@ -11,7 +11,7 @@ class Post < ApplicationRecord
     @most_likes = 0
     Post.all.each do |post|
       if post.post_likes.count > @most_likes
-          @most_likes += post.post_likes.count
+          @most_likes = post.post_likes.count
       end
     end
     @most_likes
