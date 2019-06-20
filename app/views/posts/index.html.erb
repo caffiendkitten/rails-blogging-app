@@ -1,31 +1,30 @@
-<!-- <h2>All Posts</h2> -->
-
-
-<!-- <ul> -->
-
-  <% @posts.each do |post| %>
-    <!-- <li> -->
-      <h2 class="post-title">
-
+<% @sorted_posts.each do |post| %>
+    <h2 class="post-title">
         <%= link_to((post.title), post)%>
+    </h2>
+
+    <p class="post-meta">
+        Posted by: <%= post.user.user_name %> @ <%= post.created_at %>
+    </p>
+
+    <%#= link_to post.user.user_name, post_user_path %>
 
 
-      </h2>
-      <p class="post-meta">Posted by: <%= post.user.user_name %> @ <%= post.created_at %></p>
+    <p><%= (post.content[0..100] + "...") %></p>
+    <p>
+      <span class="fa fa-star checked"></span>
+      Likes: <%= post.post_likes.count%> | Comments: <%= post.comments.count%>
+    </p>
 
-      <%#= link_to post.user.user_name, post_user_path %>
+    <button class="button"  style="vertical-align:middle">
 
+      <%= link_to("  ", new_post_like_path(post_id: post.id, user_id: @current_user), :class => "fa fa-star checked")%>
+    </button>
+  <hr>
 
-      <p><%= (post.content[0..100] + "...") %></p>
-      <p>Likes: <%= post.post_likes.count%></p>
-      <br>
-      <p>Comments: <%= post.comments.count%></p>
-    <!-- </li> -->
+<% end %>
 
-<button><%= link_to("Like", new_post_like_path(post_id: post.id, user_id: @current_user))%></button>
-    <hr>
+<!-- #{<span class="fa fa-star checked"></span>} -->
 
-  <% end %>
-
-
-<!-- </ul> -->
+<%# <img src=<%="#{ @user.pic}" %>
+<!-- , :class => "fa fa-star checked", :style => "vertical-align:middle" -->

@@ -8,11 +8,11 @@
 
 
 
-u1 = User.create(user_name: Faker::TvShows::SiliconValley.character, bio: "404 bio not found", password_digest: "qwert")
-u2 = User.create(user_name: Faker::TvShows::SiliconValley.character, bio: "404 bio not found", password_digest: "34567")
-u3 = User.create(user_name: Faker::TvShows::SiliconValley.character, bio: "yeeeeeeeeeet?", password_digest: "yeet")
-u4 = User.create(user_name: Faker::TvShows::SiliconValley.character, bio: "404 bio not found", password_digest: "sdfm")
-u5 = User.create(user_name: Faker::TvShows::SiliconValley.character, bio: "404 bio not found", password_digest: "lkjhgfds")
+u1 = User.create(user_name: Faker::TvShows::SiliconValley.character, bio: "404 bio not found", pic: Faker::Avatar.image, password_digest: "qwert")
+u2 = User.create(user_name: Faker::TvShows::SiliconValley.character, bio: "404 bio not found", pic: Faker::Avatar.image, password_digest: "34567")
+u3 = User.create(user_name: Faker::TvShows::SiliconValley.character, bio: "yeeeeeeeeeet?", pic: Faker::Avatar.image, password_digest: "yeet")
+u4 = User.create(user_name: Faker::TvShows::SiliconValley.character, bio: "404 bio not found", pic: Faker::Avatar.image, password_digest: "sdfm")
+u5 = User.create(user_name: Faker::TvShows::SiliconValley.character, bio: "404 bio not found", pic: Faker::Avatar.image, password_digest: "lkjhgfds")
 
 # Faker::Lorem.paragraphs
 
