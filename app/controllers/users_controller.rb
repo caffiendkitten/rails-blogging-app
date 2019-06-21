@@ -7,11 +7,16 @@ class UsersController < ApplicationController
     end
 
     def show
-        @user = User.find_by(id: session[:user_id])
+        if logged_in?
+            @user = User.find_by(id: session[:user_id])
+        else
+            redirect_to login_path
+        end
     end
-    
+
     def create
         @user = User.new(user_params)
+        @user.pic = Faker::Avatar.image 
         if @user.save
             log_in(@user)
             redirect_to posts_path

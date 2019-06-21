@@ -1,11 +1,9 @@
 class PostsController < ApplicationController
   before_action :set_params, only: [:show, :edit, :update]
   before_action :current_user
-
-  # not working yet
   def index
     @posts = Post.all
-    # byebug
+    @sorted_posts = Post.all.order('created_at DESC')
   end
 
   def show
@@ -17,12 +15,15 @@ class PostsController < ApplicationController
 
 
     def new
-      @post = Post.new
-      @comment = Comment.new(post_id: @post.id)
+      if logged_in?
+        @post = Post.new
+        @comment = Comment.new(post_id: @post.id)
+      else
+        redirect_to login_path
+      end
     end
 
     def create
-
       @post = Post.create(post_params)
       @post.user = @current_user
       if @post.save
@@ -31,17 +32,23 @@ class PostsController < ApplicationController
         render :new
       end
     end
-    #
-    # def edit
-    # end
+
+
+    def edit
+    end
 
     def update
       if @post.update(post_params)
-        # byebug
         redirect_to @post
       else
         render :edit
       end
+    end
+
+    def destroy
+      @post = Post.find(session[:post_id])
+      @post.delete
+      redirect_to user_path
     end
 
 

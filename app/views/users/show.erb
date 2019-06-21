@@ -1,10 +1,21 @@
-<%= link_to("Logout", logout_path)%>
-<%= link_to("Home", posts_path)%>
-<%= link_to("Edit Profile", edit_user_path)%>
-<%= link_to("Create New Post", new_post_path)%>
+<img src=<%="#{ @user.pic}" %> >
 
+<h4>Username:  <%=@user.user_name%></h4>
+<h4>Bio:  <%=@user.bio%></h4>
+
+<!-- <button class="button"  style="vertical-align:middle"> -->
+  <%= link_to("Edit Bio:", edit_user_path, :class => "button", :style => "vertical-align:middle") %>
+<!-- </button> -->
 <br>
-<br>
-    Username: <%=@user.user_name%><br>
-    Bio: <%= @user.bio%><br>
-<br>
+<hr>
+
+
+<% @user.posts.each do |post| %>
+
+    <h2 class="post-title"><%= link_to("#{post.title}", post)%></h2>
+    <p class="post-meta">Posted on: <%= post.created_at %></p>
+
+    <p><%= post.content %></p>
+  <hr>
+
+<% end %>

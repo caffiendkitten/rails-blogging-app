@@ -1,28 +1,46 @@
+<h2>
+  Title: <%= @post.title %>
+</h2>
+<p>
+  Author: <%= @post.user.user_name%>
+</p>
+<h5>
+  Content: <%= @post.content %>
+</h5>
 
-Author: <%= @post.user.user_name%>
-<br>
-<br>
-Title: <%= @post.title %>
-<br>
-Content: <%= @post.content %>
-<br>
-<br><br>
-Comments:<br>
-<ul>
- <%@comments.each do |comment|%>
-    <li><%= comment.content%></li>
-    <br>
-<%end%>
-</ul>
 
+Likes: <%= @post.post_likes.count%>
+<br>
+
+  <%= link_to("Like", new_post_like_path(post_id: @post.id, user_id: @current_user), :class => "button fa fa-star checked", :style => "vertical-align:middle")%>
+
+<br>
+<br>
+Previous Comments:
+<% if @comments.length == 0 %>
+  <br>No Comments Found. Be the first to comment below. =)<br><br>
+<%  else %>
+  <ul>
+   <%@comments.each do |comment|%>
+      <li><%= comment.content%></li>
+  <%end%>
+  </ul>
+<% end %>
+
+Comment:
 <%= form_for(@comment) do |f|%>
-    <%= f.label :content%>
-    <br>
+
     <%= f.text_area :content%>
     <br>
     <%=f.hidden_field :post_id, value: "#{@post.id}"%>
-    <%= f.submit "Comment"%>
+    <%= f.submit "Comment", :class => "button", :style => "vertical-align:middle"%>
 <%end%>
 
-<%= link_to "Add Comment", new_comment_path(post_id: @post.id) %>
 
+<% if @post.user_id == session[:user_id]%>
+  <button class="button"  style="vertical-align:middle">
+      <%= link_to("Edit", edit_post_path)%>
+  </button>
+      <%= link_to("Delete", @post, :method => :delete, :class => "button", :style => "vertical-align:middle")%>
+
+<%end%>

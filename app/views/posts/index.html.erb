@@ -1,22 +1,20 @@
-<!-- <h2>All Posts</h2> -->
+<% @sorted_posts.each do |post| %>
+    <h2 class="post-title">
+        <%= link_to((post.title), post)%>
+    </h2>
+
+    <p class="post-meta">
+        Posted by: <%= post.user.user_name %> @ <%= post.created_at %>
+    </p>
 
 
-<!-- <ul> -->
+    <p><%= (post.content[0..100] + "...") %></p>
+    <p>
+      <span class="fa fa-star checked"></span>
+      Likes: <%= post.post_likes.count%> | Comments: <%= post.comments.count%>
+    </p>
 
-  <% @posts.each do |post| %>
-    <!-- <li> -->
-      <h2 class="post-title"><%= post.title%></h2>
-      <p class="post-meta">Posted by: <%= post.user.user_name %> @ <%= post.created_at %></p>
+      <%= link_to("  ", new_post_like_path(post_id: post.id, user_id: @current_user), :class => "button fa fa-star checked", :style => "vertical-align:middle")%>
+  <hr>
 
-      <%#= link_to post.user.user_name, post_user_path %>
-
-
-      <p><%= post.content %></p>
-    <!-- </li> -->
-<%= link_to("show page", post)%>
-    <hr>
-    
-  <% end %>
-
-  
-<!-- </ul> -->
+<% end %>

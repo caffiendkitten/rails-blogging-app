@@ -21,37 +21,57 @@
   <body>
 
     <div class="wrapper">
+      <!-- <div class="gavin"> -->
         <div class="one">
-            <a href="/" class="item">
+
+          <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="#">Navbar</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+              <div class="navbar-nav">
+                <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-item nav-link" href="#">Features</a>
+                <a class="nav-item nav-link" href="#">Pricing</a>
+                <a class="nav-item nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+              </div>
+            </div>
+          </nav>
+
+
+
+            <a href="/" class="item" id="home-logo">
                 <h1># OctoThorp</h1>
             </a>
         </div>
-      <div class="two">
-        <% if logged_in? %>
-            <button class="button" style="vertical-align:middle">
-                <span>
-                    <%= link_to("Create New Post", new_post_path)%>
-                </span>
-            </button>
-            <button class="button" style="vertical-align:middle">
-                <span>
-                  <%= link_to("Profile", @current_user)%>
-                </span>
-            </button>
-            <button class="button" style="vertical-align:middle">
-                <span><%= link_to("Logout", logout_path)%>
-                </span>
-            </button>
-      <% else %>
-            <button class="button" style="vertical-align:middle">
-                <span><%= link_to("Create Account", new_user_path)%>
-                </span>
-            </button>
-            <button class="button" style="vertical-align:middle">
-                <span><%= link_to("Login", login_path)%>
-                </span>
-            </button>
-        <% end %>
+        <div class="two">
+          <% if logged_in? %>
+              <button class="button" style="vertical-align:middle">
+                  <span>
+                      <%= link_to("Create New Post", new_post_path)%>
+                  </span>
+              </button>
+              <button class="button" style="vertical-align:middle">
+                  <span>
+                    <%= link_to("Profile", @current_user)%>
+                  </span>
+              </button>
+              <button class="button" style="vertical-align:middle">
+                  <span><%= link_to("Logout", logout_path)%>
+                  </span>
+              </button>
+          <% else %>
+              <button class="button" style="vertical-align:middle">
+                  <span><%= link_to("Create Account", new_user_path)%>
+                  </span>
+              </button>
+              <button class="button" style="vertical-align:middle">
+                  <span><%= link_to("Login", login_path)%>
+                  </span>
+              </button>
+          <% end %>
+          <!-- </div> -->
       </div>
       <div class="three">
         <div class="icon-bar">
@@ -64,7 +84,6 @@
 
       </div>
       <div class="four"><%= yield %></div>
-
       <div class="five">
         <h2>Site Analytics</h2>
         Total blog word count:

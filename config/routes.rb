@@ -7,8 +7,10 @@ Rails.application.routes.draw do
   get '/sign_up', to: 'users#new'
   post '/sign_up', to: 'users#create'
   get '/', to: 'posts#index'
+  resources :post_likes, only:[:new, :create, :destroy]
   resources :posts
-  resources :users
-  resources :comments, only: [:new, :create, :destroy]
+  resources :users, only:[:new, :create, :edit, :update, :show]
+  resources :comments, only:[:new, :create, :destroy]
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
