@@ -40,7 +40,7 @@ ActiveRecord::Schema.define(version: 2019_06_20_164218) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "password_digest"
-    t.string "pic", default: "https://robohash.org/voluptatevelet.png?size=300x300&set=set1"
+    t.string "pic", default: "https://robohash.org/nihilmaioresodit.png?size=300x300&set=set1"
   end
 
 end

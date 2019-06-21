@@ -43,7 +43,7 @@ posts = json["data"]["children"]
 
 # Faker::Lorem.paragraphs
 
-# # p1 = Post.create(user_id: 1, title: Faker::TvShows::SiliconValley.quote, content: Faker::Lorem.paragraph_by_chars(256, false))
+# p1 = Post.create(user_id: 1, title: Faker::TvShows::SiliconValley.quote, content: Faker::Lorem.paragraph_by_chars(256, false))
 # p2 = Post.create(user_id: 2, title: Faker::TvShows::SiliconValley.quote, content: Faker::Lorem.paragraph_by_chars(256, false))
 # p3 = Post.create(user_id: 3, title: Faker::TvShows::SiliconValley.quote, content: Faker::Lorem.paragraph_by_chars(256, false))
 # p4 = Post.create(user_id: 4, title: Faker::TvShows::SiliconValley.quote, content: Faker::Lorem.paragraph_by_chars(256, false))
