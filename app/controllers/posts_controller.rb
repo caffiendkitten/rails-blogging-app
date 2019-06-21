@@ -2,8 +2,12 @@ class PostsController < ApplicationController
   before_action :set_params, only: [:show, :edit, :update]
   before_action :current_user
   def index
-    @posts = Post.all
-    @sorted_posts = Post.all.order('created_at DESC')
+    if logged_in?
+      @posts = Post.all
+      @sorted_posts = Post.all.order('created_at DESC')
+    else
+      redirect_to login_path
+    end
   end
 
   def show
