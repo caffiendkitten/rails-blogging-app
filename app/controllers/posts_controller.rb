@@ -15,8 +15,12 @@ class PostsController < ApplicationController
 
 
     def new
-      @post = Post.new
-      @comment = Comment.new(post_id: @post.id)
+      if logged_in?
+        @post = Post.new
+        @comment = Comment.new(post_id: @post.id)
+      else
+        redirect_to login_path
+      end
     end
 
     def create
