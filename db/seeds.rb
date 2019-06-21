@@ -9,16 +9,15 @@
 response = RestClient.get('http://reddit.com/.json')
 json = JSON.parse(response.body)
 posts = json["data"]["children"]
-# post_content = posts["data"]["selftext_html"]
 
 
-def display_post(post, index)
-  ups = post["data"]["ups"]
-  downs = post["data"]["downs"]
-  votes = "(#{ups}/#{downs})"
-  title = post["data"]["title"][0..20]
-  puts "#{index}. #{votes} #{title}"
-end
+# def display_post(post, index)
+#   ups = post["data"]["ups"]
+#   downs = post["data"]["downs"]
+#   votes = "(#{ups}/#{downs})"
+#   title = post["data"]["title"][0..20]
+#   puts "#{index}. #{votes} #{title}"
+# end
 
 response = RestClient.get('http://reddit.com/.json')
 json = JSON.parse(response.body)
@@ -29,15 +28,15 @@ posts = json["data"]["children"]
 
 # =================
 # data for users:
-u1 = User.create(user_name: Faker::TvShows::SiliconValley.character, bio: "404 bio not found", pic: Faker::Avatar.image, password_digest: "qwert")
-u2 = User.create(user_name: Faker::TvShows::SiliconValley.character, bio: "404 bio not found", pic: Faker::Avatar.image, password_digest: "34567")
-u3 = User.create(user_name: Faker::TvShows::SiliconValley.character, bio: "yeeeeeeeeeet?", pic: Faker::Avatar.image, password_digest: "yeet")
-u4 = User.create(user_name: Faker::TvShows::SiliconValley.character, bio: "404 bio not found", pic: Faker::Avatar.image, password_digest: "sdfm")
-u5 = User.create(user_name: Faker::TvShows::SiliconValley.character, bio: "404 bio not found", pic: Faker::Avatar.image, password_digest: "lkjhgfds")
-u6 = User.create(user_name: Faker::TvShows::SiliconValley.character, bio: "404 bio not found", pic: Faker::Avatar.image, password_digest: "lkjhgfds")
-u7 = User.create(user_name: Faker::TvShows::SiliconValley.character, bio: "404 bio not found", pic: Faker::Avatar.image, password_digest: "lkjhgfds")
-u8 = User.create(user_name: Faker::TvShows::SiliconValley.character, bio: "404 bio not found", pic: Faker::Avatar.image, password_digest: "lkjhgfds")
-u9 = User.create(user_name: Faker::TvShows::SiliconValley.character, bio: "404 bio not found", pic: Faker::Avatar.image, password_digest: "lkjhgfds")
+# u1 = User.create(user_name: Faker::TvShows::SiliconValley.character, bio: "404 bio not found", pic: Faker::Avatar.image, password_digest: "qwert")
+# u2 = User.create(user_name: Faker::TvShows::SiliconValley.character, bio: "404 bio not found", pic: Faker::Avatar.image, password_digest: "34567")
+# u3 = User.create(user_name: Faker::TvShows::SiliconValley.character, bio: "yeeeeeeeeeet?", pic: Faker::Avatar.image, password_digest: "yeet")
+# u4 = User.create(user_name: Faker::TvShows::SiliconValley.character, bio: "404 bio not found", pic: Faker::Avatar.image, password_digest: "sdfm")
+# u5 = User.create(user_name: Faker::TvShows::SiliconValley.character, bio: "404 bio not found", pic: Faker::Avatar.image, password_digest: "lkjhgfds")
+# u6 = User.create(user_name: Faker::TvShows::SiliconValley.character, bio: "404 bio not found", pic: Faker::Avatar.image, password_digest: "lkjhgfds")
+# u7 = User.create(user_name: Faker::TvShows::SiliconValley.character, bio: "404 bio not found", pic: Faker::Avatar.image, password_digest: "lkjhgfds")
+# u8 = User.create(user_name: Faker::TvShows::SiliconValley.character, bio: "404 bio not found", pic: Faker::Avatar.image, password_digest: "lkjhgfds")
+# u9 = User.create(user_name: Faker::TvShows::SiliconValley.character, bio: "404 bio not found", pic: Faker::Avatar.image, password_digest: "lkjhgfds")
 
 # =================
 # data for Posts:
@@ -67,6 +66,15 @@ posts.each do |post|
   # byebug
   title = post["data"]["title"]
   post_content = post["data"]["selftext"]
+
+  temp = User.create(
+    user_name: Faker::TvShows::SiliconValley.character,
+    bio: "404 bio not found",
+    pic: Faker::Avatar.image,
+    password_digest: "lkjhgfds")
+
+
+
 
   # 1.times do
     Post.create(
