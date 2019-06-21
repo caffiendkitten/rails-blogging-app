@@ -7,8 +7,6 @@
         Posted by: <%= post.user.user_name %> @ <%= post.created_at %>
     </p>
 
-    <%#= link_to post.user.user_name, post_user_path %>
-
 
     <p><%= (post.content[0..100] + "...") %></p>
     <p>
@@ -16,15 +14,7 @@
       Likes: <%= post.post_likes.count%> | Comments: <%= post.comments.count%>
     </p>
 
-    <!-- <button class="button"  style="vertical-align:middle"> -->
-
       <%= link_to("  ", new_post_like_path(post_id: post.id, user_id: @current_user), :class => "button fa fa-star checked", :style => "vertical-align:middle")%>
-    <!-- </button> -->
   <hr>
 
 <% end %>
-
-<!-- #{<span class="fa fa-star checked"></span>} -->
-
-<%# <img src=<%="#{ @user.pic}" %>
-<!-- , :class => "fa fa-star checked", :style => "vertical-align:middle" -->

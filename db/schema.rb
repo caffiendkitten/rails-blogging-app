@@ -42,5 +42,5 @@ ActiveRecord::Schema.define(version: 2019_06_20_164218) do
     t.string "password_digest"
     t.string "pic", default: "https://robohash.org/nihilmaioresodit.png?size=300x300&set=set1"
   end
-
+ 
 end
