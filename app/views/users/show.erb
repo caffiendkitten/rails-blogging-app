@@ -3,9 +3,9 @@
 <h4>Username:  <%=@user.user_name%></h4>
 <h4>Bio:  <%=@user.bio%></h4>
 
-<button class="button"  style="vertical-align:middle">
-  <%= link_to("Edit Bio:", edit_user_path) %>
-</button>
+<!-- <button class="button"  style="vertical-align:middle"> -->
+  <%= link_to("Edit Bio:", edit_user_path, :class => "button", :style => "vertical-align:middle") %>
+<!-- </button> -->
 <br>
 <hr>
 

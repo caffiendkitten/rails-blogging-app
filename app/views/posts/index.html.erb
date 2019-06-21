@@ -16,10 +16,10 @@
       Likes: <%= post.post_likes.count%> | Comments: <%= post.comments.count%>
     </p>
 
-    <button class="button"  style="vertical-align:middle">
+    <!-- <button class="button"  style="vertical-align:middle"> -->
 
-      <%= link_to("  ", new_post_like_path(post_id: post.id, user_id: @current_user), :class => "fa fa-star checked")%>
-    </button>
+      <%= link_to("  ", new_post_like_path(post_id: post.id, user_id: @current_user), :class => "button fa fa-star checked", :style => "vertical-align:middle")%>
+    <!-- </button> -->
   <hr>
 
 <% end %>

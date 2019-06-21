@@ -1,18 +1,23 @@
-
+<h2>
+  Title: <%= @post.title %>
+</h2>
 <p>
   Author: <%= @post.user.user_name%>
 </p>
-<p>
-Title: <%= @post.title %>
-</p>
-<p>
-Content: <%= @post.content %>
-</p>
+<h5>
+  Content: <%= @post.content %>
+</h5>
 
-<br><br>
+
 Likes: <%= @post.post_likes.count%>
 <br>
-<button class="button"  style="vertical-align:middle"><%= link_to("Like", new_post_like_path(post_id: @post.id, user_id: @current_user))%></button>
+
+<!-- <button class="button"  style="vertical-align:middle"> -->
+  <%= link_to("Like", new_post_like_path(post_id: @post.id, user_id: @current_user), :class => "button fa fa-star checked", :style => "vertical-align:middle")%>
+<!-- </button> -->
+
+
+
 <br>
 <br>
 Previous Comments:
@@ -43,9 +48,9 @@ Comment:
   <button class="button"  style="vertical-align:middle">
       <%= link_to("Edit", edit_post_path)%>
   </button>
-  <button class="button"  style="vertical-align:middle">
-      <%= link_to("Delete", @post, :method => :delete)%>
-  </button>
+  <!-- <button class="button"  style="vertical-align:middle"> -->
+      <%= link_to("Delete", @post, :method => :delete, :class => "button", :style => "vertical-align:middle")%>
+  <!-- </button> -->
 
     <%# <%= button_to("Delete", @recipe, :method => :delete) %>
 <%end%>
