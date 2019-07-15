@@ -1,5 +1,7 @@
 # #OctoThorp README
 
+#Octothorp is a Bloggin Platform that allows a user to log in and out, create posts, like posts, edit posts, and read posts from other users.
+
 ## Database creation
 
 - Seeded titles from Redit and content if it was available.
@@ -54,7 +56,7 @@
 
 ## contributors
 
-* [DaNeil Coulthard] (https://github.com/caffiendkitten)
+* [DaNeil Coulthard](https://github.com/caffiendkitten)
 * [Noah Fairbairn](https://github.com/NFairbairn)
 
 
