@@ -10,7 +10,17 @@ Things you may want to cover:
 - Seeded titles from Redit and content if it was available.
 
 ## How to run the test suite
+1. Fork and clone the repository
 
+2. `cd` into the correct directory, after opening the file, we suggest deleting the 'development.db' (if it exists) file in the event the database is skewed from cloning.
+
+3. Make sure to `bundle install` in your terminal to make sure all your gems are up to date
+
+4. After deleting the database, re-seed the database by first running `db:migrate` in your terminal to make sure the database is structured correctly.
+
+5. Once the migration files are in order, run `db:seed` in your terminal to repopulate the database.
+
+6. To run the program, enter `rails s` in your console to run the application!
 
 ## CRUD Actions
 
@@ -46,3 +56,18 @@ Things you may want to cover:
 * The ability to change photo or upload photos.
 
 * Links to share articles on the Social Media of choice.
+
+## contributors
+
+* [DaNeil Coulthard] (https://github.com/caffiendkitten)
+* [Noah Fairbairn](https://github.com/NFairbairn)
+
+
+#### Learn.co Educational Content License
+
+Copyright (c) 2015 Flatiron School, Inc
+
+The Flatiron School, Inc. owns this Educational Content. However, the Flatiron School supports the development and availability of educational materials in the public domain. Therefore, the Flatiron School grants Users of the Flatiron Educational Content set forth in this repository certain rights to reuse, build upon and share such Educational Content subject to the terms of the Educational Content License set forth [here](http://learn.co/content-license) (http://learn.co/content-license). You must read carefully the terms and conditions contained in the Educational Content License as such terms govern access to and use of the Educational Content.
+
+Flatiron School is willing to allow you access to and use of the Educational Content only on the condition that you accept all of the terms and conditions contained in the Educational Content License set forth [here](http://learn.co/content-license) (http://learn.co/content-license).  By accessing and/or using the Educational Content, you are agreeing to all of the terms and conditions contained in the Educational Content License.  If you do not agree to any or all of the terms of the Educational Content License, you are prohibited from accessing, reviewing or using in any way the Educational Content.
+
